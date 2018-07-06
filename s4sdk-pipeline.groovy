@@ -45,7 +45,7 @@ pipeline {
             }
         }
 
-       /* stage('Remote Tests') {
+        stage('Remote Tests') {
             when { expression { commonPipelineEnvironment.configuration.skipping.REMOTE_TESTS } }
             parallel {
                 stage("End to End Tests") {
@@ -90,7 +90,7 @@ pipeline {
         stage('Production Deployment') {
             when { expression { commonPipelineEnvironment.configuration.skipping.PRODUCTION_DEPLOYMENT } }
             steps { stageProductionDeployment script: this }
-        }*/
+        }
 
     }
     post {
