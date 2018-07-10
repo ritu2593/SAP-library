@@ -61,7 +61,7 @@ pipeline {
 
         /*stage('Quality Checks') {
             steps { stageS4SdkQualityChecks script: this }
-        }*/
+        }
 
         stage('Third-party Checks') {
             when { expression { commonPipelineEnvironment.configuration.skipping.THIRD_PARTY_CHECKS } }
@@ -90,7 +90,7 @@ pipeline {
         stage('Production Deployment') {
             when { expression { commonPipelineEnvironment.configuration.skipping.PRODUCTION_DEPLOYMENT } }
             steps { stageProductionDeployment script: this }
-        }
+        }*/
 
     }
     post {
