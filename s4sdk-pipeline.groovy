@@ -45,7 +45,7 @@ pipeline {
             }
         }
 
-        stage('Remote Tests') {
+        /*stage('Remote Tests') {
             when { expression { commonPipelineEnvironment.configuration.skipping.REMOTE_TESTS } }
             parallel {
                 stage("End to End Tests") {
@@ -59,7 +59,7 @@ pipeline {
             }
         }
 
-        /*stage('Quality Checks') {
+        stage('Quality Checks') {
             steps { stageS4SdkQualityChecks script: this }
         }
 
@@ -85,12 +85,12 @@ pipeline {
         stage('Artifact Deployment') {
             when { expression { commonPipelineEnvironment.configuration.skipping.ARTIFACT_DEPLOYMENT } }
             steps { stageArtifactDeployment script: this }
-        }
+        }*/
 
         stage('Production Deployment') {
             when { expression { commonPipelineEnvironment.configuration.skipping.PRODUCTION_DEPLOYMENT } }
             steps { stageProductionDeployment script: this }
-        }*/
+        }
 
     }
     post {
