@@ -29,7 +29,7 @@ pipeline {
             }
         }
 
-      /*  stage('Local Tests') {
+       stage('Local Tests') {
             parallel {
                 stage("Static Code Checks") { steps { stageStaticCodeChecks script: this } }
                 stage("Backend Unit Tests") { steps { stageUnitTests script: this } }
@@ -80,17 +80,17 @@ pipeline {
                 }
             }
 
-        }*/
+        }
 
         stage('Artifact Deployment') {
             when { expression { commonPipelineEnvironment.configuration.skipping.ARTIFACT_DEPLOYMENT } }
             steps { stageArtifactDeployment script: this }
         }
-/*
+
         stage('Production Deployment') {
             when { expression { commonPipelineEnvironment.configuration.skipping.PRODUCTION_DEPLOYMENT } }
             steps { stageProductionDeployment script: this }
-        }*/
+        }
 
     }
     post {
