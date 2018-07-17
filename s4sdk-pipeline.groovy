@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Init') {
             steps {
-                library "s4sdk-pipeline-library@${pipelineSdkVersion}"
+                library "https://github.com/ritu2593/Pipeline-library.git@${pipelineSdkVersion}"
                 stageInitS4sdkPipeline script: this
                 abortOldBuilds script: this
             }
