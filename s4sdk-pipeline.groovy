@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Init') {
             steps {
-                library "s4sdk-pipeline-library@${pipelineSdkVersion}"
+                library "PipelineLibrary@${pipelineSdkVersion}"
                 stageInitS4sdkPipeline script: this
                 abortOldBuilds script: this
             }
@@ -84,7 +84,7 @@ pipeline {
 
         stage('Artifact Deployment') {
             when { expression { commonPipelineEnvironment.configuration.skipping.ARTIFACT_DEPLOYMENT } }
-            steps { ArtifactDeploy script: this }
+            steps {  stageArtifactDeployment script: this }
         }
 
         stage('Production Deployment') {
