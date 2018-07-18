@@ -84,7 +84,7 @@ pipeline {
 
         stage('Artifact Deployment') {
             when { expression { commonPipelineEnvironment.configuration.skipping.ARTIFACT_DEPLOYMENT } }
-            steps { stageArtifactDeployment script: this }
+            steps { ArtifactDeploy script: this }
         }
 
         stage('Production Deployment') {
